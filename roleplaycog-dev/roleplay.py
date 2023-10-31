@@ -5,7 +5,7 @@ from aiofiles import open as aiopen
 from datetime import datetime
 from discord.ext.commands import Cog, has_permissions
 from importlib.metadata import version
-__version__ = version("roleplaycog")
+__version__ = version("roleplaycog-dev")
 
 description = ...
 client = Client()
@@ -32,14 +32,14 @@ class Roleplay(Cog):
 			return webhook
 
 	roleplay = SlashCommandGroup(
-		"roleplay", "Roleplay cog from the roleplaycog package")
+		"roleplay", "Roleplay cog from the roleplaycog-dev package")
 
 	@roleplay.command(description="Shows information about the roleplay extension")
 	@guild_only()
 	async def info(self, ctx: ApplicationContext):
 		await ctx.response.defer(ephemeral=True)
-		embed = Embed(colour=BLANK, title=f"roleplaycog v{__version__}",
-							description="Welcome to roleplaycog! Lets go through the commands and their usages.")
+		embed = Embed(colour=BLANK, title=f"roleplaycog-dev v{__version__}",
+							description="Welcome to roleplaycog (development release)! Lets go through the commands and their usages.")
 		embed.add_field(
 			name="create", value="Creates/edits a character using the given information.", inline=False)
 		embed.add_field(
